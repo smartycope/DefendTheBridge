@@ -1,0 +1,231 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Canvas.gd" type="Script" id=1]
+[ext_resource path="res://RadioButton.gd" type="Script" id=2]
+[ext_resource path="res://Explanation.gd" type="Script" id=3]
+
+[sub_resource type="InputEventAction" id=6]
+action = "Submit"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "Settings"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Canvas" type="ColorRect" parent="Container"]
+margin_right = 1024.0
+margin_bottom = 572.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.85098, 0.85098, 0.85098, 1 )
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+margin_top = 576.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Explanation" type="LineEdit" parent="Container/HBoxContainer"]
+margin_right = 963.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+placeholder_text = "Explanation..."
+placeholder_alpha = 0.5
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="Container/HBoxContainer"]
+margin_left = 967.0
+margin_right = 1024.0
+margin_bottom = 24.0
+shortcut = SubResource( 5 )
+text = "Submit"
+
+[node name="MenuButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -45.0
+margin_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 45, 45 )
+hint_tooltip = "Settings"
+focus_mode = 0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+shortcut_in_tooltip = false
+shortcut = SubResource( 2 )
+text = "..."
+flat = true
+
+[node name="PopupMenu2" type="PopupMenu" parent="MenuButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -19.0
+margin_right = 25.0
+margin_bottom = 19.0
+size_flags_horizontal = 9
+size_flags_vertical = 9
+items = [ "Lose", null, 0, false, false, 0, 0, null, "", false ]
+
+[node name="StartupMenu" type="PopupPanel" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.0
+margin_top = -101.0
+margin_right = 137.0
+margin_bottom = 101.0
+popup_exclusive = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartupMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="Label3" type="Label" parent="StartupMenu/VBoxContainer"]
+margin_right = 266.0
+margin_bottom = 31.0
+text = "Welcome to Defend the Bridge!
+"
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="Label" type="Label" parent="StartupMenu/VBoxContainer"]
+margin_top = 35.0
+margin_right = 266.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Destroying the Bridge"
+align = 1
+
+[node name="Player1" type="HBoxContainer" parent="StartupMenu/VBoxContainer"]
+margin_top = 53.0
+margin_right = 266.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Color" type="ColorPickerButton" parent="StartupMenu/VBoxContainer/Player1"]
+margin_right = 27.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 27, 0 )
+size_flags_horizontal = 5
+size_flags_vertical = 0
+flat = true
+edit_alpha = false
+
+[node name="Name" type="LineEdit" parent="StartupMenu/VBoxContainer/Player1"]
+margin_left = 31.0
+margin_right = 266.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+placeholder_text = "Destroyer"
+
+[node name="Label2" type="Label" parent="StartupMenu/VBoxContainer"]
+margin_top = 90.0
+margin_right = 266.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Defending the Bridge"
+align = 1
+valign = 2
+
+[node name="Player2" type="HBoxContainer" parent="StartupMenu/VBoxContainer"]
+margin_top = 108.0
+margin_right = 266.0
+margin_bottom = 142.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Color" type="ColorPickerButton" parent="StartupMenu/VBoxContainer/Player2"]
+margin_right = 27.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 27, 0 )
+size_flags_horizontal = 5
+size_flags_vertical = 0
+flat = true
+color = Color( 1, 0, 0, 1 )
+edit_alpha = false
+
+[node name="Name" type="LineEdit" parent="StartupMenu/VBoxContainer/Player2"]
+margin_left = 31.0
+margin_right = 266.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+placeholder_text = "Defender"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartupMenu/VBoxContainer"]
+margin_top = 146.0
+margin_right = 266.0
+margin_bottom = 170.0
+alignment = 1
+
+[node name="Bridge" type="CheckBox" parent="StartupMenu/VBoxContainer/HBoxContainer"]
+margin_left = 62.0
+margin_right = 131.0
+margin_bottom = 24.0
+pressed = true
+text = "Bridge"
+script = ExtResource( 2 )
+
+[node name="Empty" type="CheckBox" parent="StartupMenu/VBoxContainer/HBoxContainer"]
+margin_left = 135.0
+margin_right = 203.0
+margin_bottom = 24.0
+text = "Empty"
+script = ExtResource( 2 )
+
+[node name="Start" type="Button" parent="StartupMenu/VBoxContainer"]
+margin_left = 112.0
+margin_top = 174.0
+margin_right = 153.0
+margin_bottom = 194.0
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="PlayerLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.5
+margin_right = 45.5
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 0.713726 )
+text = "Player 1's turn"
+align = 1
+
+[connection signal="ready" from="." to="StartupMenu" method="popup_centered"]
+[connection signal="pressed" from="Container/HBoxContainer/Button" to="Container/Canvas" method="submitted"]
+[connection signal="pressed" from="Container/HBoxContainer/Button" to="Container/HBoxContainer/Explanation" method="submitted"]
+[connection signal="pressed" from="MenuButton" to="MenuButton/PopupMenu2" method="popup_centered"]
+[connection signal="index_pressed" from="MenuButton/PopupMenu2" to="Container/Canvas" method="eraseAllLines"]
+[connection signal="toggled" from="StartupMenu/VBoxContainer/HBoxContainer/Bridge" to="StartupMenu/VBoxContainer/HBoxContainer/Empty" method="set_opposite_pressed_no_signal"]
+[connection signal="toggled" from="StartupMenu/VBoxContainer/HBoxContainer/Empty" to="StartupMenu/VBoxContainer/HBoxContainer/Bridge" method="set_opposite_pressed_no_signal"]
+[connection signal="pressed" from="StartupMenu/VBoxContainer/Start" to="Container/Canvas" method="setPlayers"]
+[connection signal="pressed" from="StartupMenu/VBoxContainer/Start" to="StartupMenu" method="hide"]
